@@ -11,10 +11,6 @@
 #import "DSDownloadWithSCP_version.h"
 
 @interface DSDownloadWithSCP : AMBundleAction {
-	IBOutlet NSButton* checkForNewVersionButton;
-	IBOutlet NSButton* downloadNewVersionButton;
-	IBOutlet NSTextField* noNewVersionLabel;
-	IBOutlet NSTextField* failCheckNewVersionLabel;
 	IBOutlet NSTokenField* sourcePathsTokenField;
 	NSMutableArray *temporaryFoldersCreated;
 }

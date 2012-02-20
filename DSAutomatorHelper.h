@@ -8,8 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface DSAutomatorHelper : NSObject {
-}
+@interface DSAutomatorHelper : NSObject
 
 + (NSDictionary *)constructAutomatorError:(NSString *)message;
 

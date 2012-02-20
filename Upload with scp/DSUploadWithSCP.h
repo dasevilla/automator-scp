@@ -10,12 +10,7 @@
 #import <Automator/AMBundleAction.h>
 #import "DSUploadWithSCP_version.h"
 
-@interface DSUploadWithSCP : AMBundleAction {
-	IBOutlet NSButton* checkForNewVersionButton;
-	IBOutlet NSButton* downloadNewVersionButton;
-	IBOutlet NSTextField* noNewVersionLabel;
-	IBOutlet NSTextField* failCheckNewVersionLabel;
-}
+@interface DSUploadWithSCP : AMBundleAction
 
 - (id)runWithInput:(id)input fromAction:(AMAction *)anAction error:(NSDictionary **)errorInfo;
 
