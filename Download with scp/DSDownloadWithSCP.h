@@ -10,8 +10,6 @@
 #import <Automator/AMBundleAction.h>
 #import "DSDownloadWithSCP_version.h"
 
-#define kDSDownloadWithSCPVersionCheckURL @"http://automator-scp.googlecode.com/files/Download%20with%20scp%20latest%20version.txt"
-
 @interface DSDownloadWithSCP : AMBundleAction {
 	IBOutlet NSButton* checkForNewVersionButton;
 	IBOutlet NSButton* downloadNewVersionButton;
@@ -24,8 +22,6 @@
 - (void)opened;
 
 - (id)runWithInput:(id)input fromAction:(AMAction *)anAction error:(NSDictionary **)errorInfo;
-
-- (IBAction)checkForNewVersionSelector:(id)sender;
 
 - (void)closed;
 

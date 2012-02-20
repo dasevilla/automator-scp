@@ -20,7 +20,7 @@
 	<key>AMCanShowWhenRun</key>
 	<true/>
 	<key>AMCategory</key>
-	<string>AMCategoryInternet</string>
+	<string>AMCategoryUtilities</string>
 	<key>AMDefaultParameters</key>
 	<dict>
 		<key>scpDestinationPath</key>

@@ -20,11 +20,9 @@
 	<key>AMCanShowWhenRun</key>
 	<true/>
 	<key>AMCategory</key>
-	<string>AMCategoryInternet</string>
+	<string>AMCategoryUtilities</string>
 	<key>AMDefaultParameters</key>
 	<dict>
-		<key>scpSourcePaths</key>
-		<array/>
 		<key>scpOtherOptions</key>
 		<string></string>
 		<key>scpPreserveExtended</key>
@@ -33,6 +31,8 @@
 		<true/>
 		<key>scpServer</key>
 		<string></string>
+		<key>scpSourcePaths</key>
+		<array/>
 		<key>scpUserName</key>
 		<string></string>
 	</dict>

@@ -13,12 +13,4 @@
 
 + (NSDictionary *)constructAutomatorError:(NSString *)message;
 
-+ (void)checkForNewVersion:(NSString *)product 
-	  currentVersionString:(NSString *)currentVersionString
-					   url:(NSURL *)url 
-  checkForNewVersionButton:(NSButton *)checkForNewVersionButton
-  downloadNewVersionButton:(NSButton *)downloadNewVersionButton
-		 noNewVersionLabel:(NSTextField *)noNewVersionLabel
-  failCheckNewVersionLabel:(NSTextField *)failCheckNewVersionLabel;
-
 @end

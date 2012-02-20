@@ -3,35 +3,8 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
-
-/* Begin PBXAggregateTarget section */
-		CDF8DB8C115B3D610041F98A /* Download with scp installer */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = CDF8DB90115B3D610041F98A /* Build configuration list for PBXAggregateTarget "Download with scp installer" */;
-			buildPhases = (
-				CDF8DB8F115B3D610041F98A /* ShellScript */,
-			);
-			dependencies = (
-				CDF8DB94115B3D730041F98A /* PBXTargetDependency */,
-			);
-			name = "Download with scp installer";
-			productName = "Upload with scp installer";
-		};
-		CDFDE304115A11A4009388CD /* Upload with scp installer */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = CDFDE30F115A11C6009388CD /* Build configuration list for PBXAggregateTarget "Upload with scp installer" */;
-			buildPhases = (
-				CDFDE311115A11E6009388CD /* ShellScript */,
-			);
-			dependencies = (
-				CDFDE308115A11A9009388CD /* PBXTargetDependency */,
-			);
-			name = "Upload with scp installer";
-			productName = "Upload with scp installer";
-		};
-/* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		650E79E2067AB5AE00B4A4EC /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650E79E1067AB5AE00B4A4EC /* Automator.framework */; };
@@ -63,23 +36,6 @@
 		CDAD82F21158E5780051972B /* DSSCP.h in Headers */ = {isa = PBXBuildFile; fileRef = CDAD82E31158E4DD0051972B /* DSSCP.h */; };
 		CDAD82F31158E5780051972B /* DSUploadWithSCP.h in Headers */ = {isa = PBXBuildFile; fileRef = CDAD82E01158E4D00051972B /* DSUploadWithSCP.h */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CDF8DB93115B3D730041F98A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD283FD6115B28A100A989FE;
-			remoteInfo = "Download with scp";
-		};
-		CDFDE307115A11A9009388CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
-			remoteInfo = "Upload with scp";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -345,19 +301,22 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "automator-scp project";
 			};
 			buildConfigurationList = 4E59C34308A97622001206A8 /* Build configuration list for PBXProject "automator-scp" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 089C166AFE841209C02AAC07 /* Upload with scp */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				CD283FD6115B28A100A989FE /* Download with scp */,
-				CDF8DB8C115B3D610041F98A /* Download with scp installer */,
 				8D5B49AC048680CD000E48DA /* Upload with scp */,
-				CDFDE304115A11A4009388CD /* Upload with scp installer */,
 			);
 		};
 /* End PBXProject section */
@@ -412,34 +371,6 @@
 			shellPath = /bin/sh;
 			shellScript = "REV=`svnversion -n`\necho \"#define kDSUploadWithSCPSVNRevision @\\\"$REV\\\"\" > \"${DERIVED_FILE_DIR}/DSUploadWithSCP_version.h\"\nVER=`agvtool mvers -terse | grep \"${PRODUCT_NAME}\" | sed \"s/.*=//\"`\necho \"#define kDSUploadWithSCPVersion @\\\"$VER\\\"\" >> \"${DERIVED_FILE_DIR}/DSUploadWithSCP_version.h\"";
 		};
-		CDF8DB8F115B3D610041F98A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(BUILD_PRODUCTS_DIR)/Download with scp.action",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PROD=\"Download with scp\"\nVER=`agvtool mvers -terse | grep \"${PROD}\" | sed \"s/.*=//\"`\nINST=\"${PROD} v${VER} installer\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${INST}.app\"\nrm -f \"${BUILT_PRODUCTS_DIR}/${INST}.zip\"\nditto \"Installer/Actions Installer.app\" \"${BUILT_PRODUCTS_DIR}/${INST}.app\"\ntouch \"${BUILT_PRODUCTS_DIR}/${INST}.app\"\nditto \"${BUILT_PRODUCTS_DIR}/${PROD}.action\" \"${BUILT_PRODUCTS_DIR}/${INST}.app/Contents/Resources/Actions/${PROD}.action\"\nditto \"${PROD}/description.rtfd\" \"${BUILT_PRODUCTS_DIR}/${INST}.app/Contents/Resources/description.rtfd\"\nditto -c -k --keepParent --noqtn --noacl \"${BUILT_PRODUCTS_DIR}/${INST}.app\" \"${BUILT_PRODUCTS_DIR}/${INST}.zip\"\n";
-		};
-		CDFDE311115A11E6009388CD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(BUILD_PRODUCTS_DIR)/Upload with scp.action",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PROD=\"Upload with scp\"\nVER=`agvtool mvers -terse | grep \"${PROD}\" | sed \"s/.*=//\"`\nINST=\"${PROD} v${VER} installer\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${INST}.app\"\nrm -f \"${BUILT_PRODUCTS_DIR}/${INST}.zip\"\nditto \"Installer/Actions Installer.app\" \"${BUILT_PRODUCTS_DIR}/${INST}.app\"\ntouch \"${BUILT_PRODUCTS_DIR}/${INST}.app\"\nditto \"${BUILT_PRODUCTS_DIR}/${PROD}.action\" \"${BUILT_PRODUCTS_DIR}/${INST}.app/Contents/Resources/Actions/${PROD}.action\"\nditto \"${PROD}/description.rtfd\" \"${BUILT_PRODUCTS_DIR}/${INST}.app/Contents/Resources/description.rtfd\"\nditto -c -k --keepParent --noqtn --noacl \"${BUILT_PRODUCTS_DIR}/${INST}.app\" \"${BUILT_PRODUCTS_DIR}/${INST}.zip\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -468,19 +399,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		CDF8DB94115B3D730041F98A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CD283FD6115B28A100A989FE /* Download with scp */;
-			targetProxy = CDF8DB93115B3D730041F98A /* PBXContainerItemProxy */;
-		};
-		CDFDE308115A11A9009388CD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8D5B49AC048680CD000E48DA /* Upload with scp */;
-			targetProxy = CDFDE307115A11A9009388CD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CD283FD0115B24EC00A989FE /* main.xib */ = {
@@ -512,7 +430,6 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -553,8 +470,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -567,8 +483,7 @@
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Release;
@@ -582,7 +497,6 @@
 					"\\\"$(SRCROOT)\\\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -614,48 +528,6 @@
 			};
 			name = Release;
 		};
-		CDF8DB91115B3D610041F98A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = "Upload with scp installer";
-			};
-			name = Debug;
-		};
-		CDF8DB92115B3D610041F98A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PRODUCT_NAME = "Upload with scp installer";
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		CDFDE305115A11A4009388CD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = "Upload with scp installer";
-			};
-			name = Debug;
-		};
-		CDFDE306115A11A4009388CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PRODUCT_NAME = "Upload with scp installer";
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -682,24 +554,6 @@
 			buildConfigurations = (
 				CD283FEB115B28A100A989FE /* Debug */,
 				CD283FEC115B28A100A989FE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CDF8DB90115B3D610041F98A /* Build configuration list for PBXAggregateTarget "Download with scp installer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CDF8DB91115B3D610041F98A /* Debug */,
-				CDF8DB92115B3D610041F98A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CDFDE30F115A11C6009388CD /* Build configuration list for PBXAggregateTarget "Upload with scp installer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CDFDE305115A11A4009388CD /* Debug */,
-				CDFDE306115A11A4009388CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -62,17 +62,4 @@
 	return input;
 }
 
-- (IBAction)checkForNewVersionSelector:(id)sender {
-
-	[DSAutomatorHelper checkForNewVersion:@"Upload with scp"
-					 currentVersionString:kDSUploadWithSCPVersion 
-									  url:[NSURL URLWithString:kDSUploadWithSCPVersionCheckURL] 
-				 checkForNewVersionButton:checkForNewVersionButton
-				 downloadNewVersionButton:downloadNewVersionButton
-						noNewVersionLabel:noNewVersionLabel
-				 failCheckNewVersionLabel:failCheckNewVersionLabel
-	 ];
-	 
-}
-
 @end

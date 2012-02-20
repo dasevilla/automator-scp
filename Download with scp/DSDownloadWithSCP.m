@@ -93,19 +93,6 @@
 	
 }
 
-- (IBAction)checkForNewVersionSelector:(id)sender {
-
-	[DSAutomatorHelper checkForNewVersion:@"Download with scp"
-					 currentVersionString:kDSDownloadWithSCPVersion 
-									  url:[NSURL URLWithString:kDSDownloadWithSCPVersionCheckURL] 
-				 checkForNewVersionButton:checkForNewVersionButton
-				 downloadNewVersionButton:downloadNewVersionButton
-						noNewVersionLabel:noNewVersionLabel
-				 failCheckNewVersionLabel:failCheckNewVersionLabel
-	 ];
-	 
-}
-
 - (void)closed {
 	
 	// clean any temporary directories created, if they're empty
